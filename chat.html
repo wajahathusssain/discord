@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Chat System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <h1>Servers</h1>
+            <div class="server" onclick="selectServer('server1')">
+                <span class="icon">S</span>
+                <p>My Server</p>
+            </div>
+            <div class="server" onclick="createServer()">
+                <span class="icon">+</span>
+                <p>Create Server</p>
+            </div>
+        </div>
+
+        <!-- Server Details -->
+        <div id="server-details">
+            <div id="server-header">
+                <h2 id="server-name">Server Name</h2>
+                <button onclick="editServer()">Edit</button>
+            </div>
+            <ul id="channels">
+                <li onclick="openChannel('general')"># General</li>
+                <li onclick="openChannel('coding')"># Coding</li>
+                <li onclick="createChannel()">+ Create Channel</li>
+            </ul>
+        </div>
+
+        <!-- Chat Area -->
+        <div id="chat-area">
+            <div id="chat-header">
+                <h2 id="channel-name"># General</h2>
+                <button onclick="startVoiceCall()">Voice Call</button>
+                <button onclick="startVideoCall()">Video Call</button>
+            </div>
+            <div id="chat-box">
+                <!-- Chat messages -->
+                <div class="message">
+                    <div class="avatar">U</div>
+                    <div class="content">
+                        <p><strong>User1</strong> <span class="timestamp">10:00 AM</span></p>
+                        <p>Hello, world!</p>
+                        <div class="reactions">
+                            <span onclick="react(this, '👍')">👍</span>
+                            <span onclick="react(this, '😂')">😂</span>
+                            <span onclick="react(this, '❤️')">❤️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form id="chat-input">
+                <input type="text" id="message" placeholder="Type a message..." />
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+
+        <!-- User List -->
+        <div id="user-list">
+            <h2>Online Users</h2>
+            <ul>
+                <li>
+                    <span>User1</span>
+                    <button onclick="sendFriendRequest('User1')">Add Friend</button>
+                </li>
+                <li>
+                    <span>User2</span>
+                    <button onclick="sendFriendRequest('User2')">Add Friend</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
